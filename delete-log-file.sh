@@ -15,7 +15,7 @@ then
 fi
 echo  "script start executing at: $TIMESTAMP"  &>>$Log_files
 
-delete_file=$(find Source_dirc -name "*.log" -mtime +14)
+delete_file=$(find $Source_dirc -name "*.log" -mtime +14)
 echo " Wanted to delete:$delete_file"
 while read -r file
 do
