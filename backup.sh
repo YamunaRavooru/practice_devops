@@ -28,7 +28,7 @@ fi
 echo -e "script start executing at:$TIMESTAMP"   &>>Log_files 
 Files=$(find $S_Dir -name "*.log" -mtime +14) &>>Log_files
 
-if [ -n  "$File" ]
+if [ -n  "$Files" ]
 then
    echo "Deleted files :$Files"
   echo "zip the files in $D_Dir....."
