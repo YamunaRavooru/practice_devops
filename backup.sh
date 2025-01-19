@@ -11,12 +11,12 @@ then
   echo "Usage: sh backup <S_Dir> <D_Dir> days <optional>"
   exit 1
 fi  
-if [ ! -d "$S_Dir" ]
+if [ ! -d  "$S_Dir" ]
 then
   echo "$S_Dir does not exist.... please check  "
   exit 1
 fi  
-if [ ! -d "$D_Dir" ]
+if [ ! -d  "$D_Dir" ]
 then
   echo "$D_Dir does not exist.... please check  "
   exit 1
