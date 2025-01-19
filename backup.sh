@@ -36,12 +36,12 @@ then
   if [ -f  "$Zip_file" ]
   then
       echo -e "Zip file is $Y sucessfully $N created older than $Days..."
-      while read -r  $name
+      while  read -r  $name
       do 
        echo -e " deleting files:$name" 
-        rm -rf  $name
+      rm -rf $name
        echo "after removing files: $name"  
-      done <<< $files
+      done <<<  $files
   else
     echo -e "$R ERORR: $N Failed to create zip file"
  fi   
