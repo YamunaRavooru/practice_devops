@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir -p  var/log/shell_logs
 Source_dirc="/home/ec2-user/app-log"
 Dest_dirc="/var/log/Shell_logs"
 File_Name=$( $0 | cut -d '.' -f1)
@@ -11,4 +12,4 @@ then
   echo Root user only acess this script:  
   exit 1
 fi
-  
+
