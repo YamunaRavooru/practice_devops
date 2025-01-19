@@ -37,9 +37,15 @@ then
   if [ -f  "$Zip_file" ]
   then
   echo -e "Zip file is $Y sucessfully $N created older than $Days..."
+  while read -r $Files_path
+  do 
+  echo -e " deleting files:$Files_path" &>>Log_files
+  rm -rf $Files_path
+  echo "after removing files: $File_path"  
+  done <<< $Files
   else
     echo -e "$R ERORR: $N Failed to create zip file"
  fi   
 else 
-  echo "No files are found to delete"
+  echo "No files are found to delete older than $Days"
 fi    
