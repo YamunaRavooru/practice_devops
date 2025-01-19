@@ -41,7 +41,7 @@ then
        echo -e " deleting files:$name" 
         rm -rf  $name
        echo "after removing files: $name"  
-      done <<< $Files
+      done << $Files
   else
     echo -e "$R ERORR: $N Failed to create zip file"
  fi   
