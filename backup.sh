@@ -3,8 +3,8 @@ Source_dirc="/var/log/shell-log"
 File_name=$(echo $0 |cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 Log_files="$Source_dirc/$File_name-$TIMESTAMP.log"
-D_Dir=$1
-S_Dir=$2
+D_Dir=$2
+S_Dir=$1
 Days=${3:-14}
 if [ $# -lt 2 ]
 then
