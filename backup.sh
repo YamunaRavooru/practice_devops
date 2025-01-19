@@ -39,6 +39,7 @@ then
   echo -e "Zip file is $Y sucessfully $N created older than $Days..."
   else
     echo -e "$R ERORR: $N Failed to create zip file"
+ fi   
 else 
   echo "No files are found to delete"
 fi    
