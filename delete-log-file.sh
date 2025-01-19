@@ -20,4 +20,5 @@ echo " Wanted to delete:$delete_file"
 while read -r file
 do
  echo "to be deleted:$file"
+ rm -rf $file
 done <<< $delete_file 
