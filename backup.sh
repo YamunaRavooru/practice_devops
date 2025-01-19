@@ -12,7 +12,7 @@ S_Dir=$1
 Days=${3:-14}
 if [ $# -lt 2 ]
 then
-  echo -e " $R Usage: $N sh backup <S_Dir> <D_Dir> <days (optional)>" &>>Log_files
+  echo -e " $R Usage: $N sh backup <S_Dir> <D_Dir> <days (optional)>" &>>$Log_files
   exit 1
 fi  
 if [ ! -d  "$S_Dir" ]
@@ -25,14 +25,14 @@ then
   echo "$D_Dir does not exist.... please check  "
   exit 1
 fi  
-echo -e "script start executing at:$TIMESTAMP"   &>>Log_files
+echo -e "script start executing at:$TIMESTAMP"   &>>$Log_files
 files=$(find $S_Dir -name "*.log" -mtime +$Days) 
 
 if [ -n  "$files" ]
 then
      echo "Deleted files :$files"
-     Zip_file="$D_Dir/app-log-$TIMESTAMP.zip"  &>>Log_files
-    find $S_Dir -name  "*.log" -mtime +$Days | zip -@  "$Zip_file" &>>Log_files
+     Zip_file="$D_Dir/app-log-$TIMESTAMP.zip"  &>>$Log_files
+    find $S_Dir -name  "*.log" -mtime +$Days | zip -@  "$Zip_file" &>>$Log_files
   if [ -n  "$Zip_file" ]
   then
       echo -e "Zip file is $Y sucessfully $N created older than $Days..."
