@@ -35,12 +35,12 @@ then
     find $S_Dir -name  "*.log" -mtime +$Days | zip -@  "$Zip_file" &>>Log_files
   if [ -f  "$Zip_file" ]
   then
-  echo -e "Zip file is $Y sucessfully $N created older than $Days..."
-      while read -r $Files_path
+      echo -e "Zip file is $Y sucessfully $N created older than $Days..."
+      while read -r  $name
       do 
-       echo -e " deleting files:$Files_path" 
-        rm -rf  $Files_path
-       echo "after removing files: $Files_path"  
+       echo -e " deleting files:$name" 
+        rm -rf  $name
+       echo "after removing files: $name"  
       done <<< $Files
   else
     echo -e "$R ERORR: $N Failed to create zip file"
