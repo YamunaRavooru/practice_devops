@@ -26,11 +26,11 @@ then
   exit 1
 fi  
 echo -e "script start executing at:$TIMESTAMP"   
-Files=$(find $S_Dir -name "*.log" -mtime +$Days) 
+files=$(find $S_Dir -name "*.log" -mtime +$Days) 
 
-if [ -n  "$Files" ]
+if [ -n  "$files" ]
 then
-     echo "Deleted files :$Files"
+     echo "Deleted files :$files"
      Zip_file="$D_Dir/app-log-$TIMESTAMP.zip"  &>>Log_files
     find $S_Dir -name  "*.log" -mtime +$Days | zip -@  "$Zip_file" &>>Log_files
   if [ -f  "$Zip_file" ]
@@ -41,7 +41,7 @@ then
        echo -e " deleting files:$name" 
         rm -rf  $name
        echo "after removing files: $name"  
-      done <<< $Files
+      done <<< $files
   else
     echo -e "$R ERORR: $N Failed to create zip file"
  fi   
