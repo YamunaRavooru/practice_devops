@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p  var/log/shell_logs
+mkdir -p  /var/log/shell_logs
 Source_dirc="/home/ec2-user/app-log"
 Dest_dirc="/var/log/Shell_logs"
 File_Name=$(echo  $0 | cut -d '.' -f1)
