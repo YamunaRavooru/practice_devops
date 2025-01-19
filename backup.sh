@@ -26,15 +26,15 @@ then
   exit 1
 fi  
 echo -e "script start executing at:$TIMESTAMP"   &>>Log_files 
-Files=$(find $S_Dir -name "*.log" -mtime +14) &>>Log_files
+Files=$(find $S_Dir -name "*.log" -mtime +$Days) &>>Log_files
 
 if [ -n  "$Files" ]
 then
    echo "Deleted files :$Files"
   echo "zip the files in $D_Dir....."
   Zip_file="$D_Dir/app-log-$TIMESTAMP.zip"
-  find $S_Dir -name  "*.log" -mtime +14 | zip -@ "$Zip_file"
-  if [ -f $Zip_file ]
+  find $S_Dir -name  "*.log" -mtime +$Days | zip -@ "$Zip_file"
+  if [ -f "$Zip_file" ]
   then
   echo -e "Zip file is $Y sucessfully $N created older than $Days..."
   else
