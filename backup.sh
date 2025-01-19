@@ -21,3 +21,11 @@ then
   echo "$D_Dir does not exist.... please check  "
   exit 1
 fi  
+Files=$(find $S_Dir -name "*.log" -mtime +14)
+echo "Deleted files :$Files"
+if [ -d "$File" ]
+then
+  echo "zip the files in $D_Dir....."
+else 
+  echo "No files are found to delete"
+fi    
