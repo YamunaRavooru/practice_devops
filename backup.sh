@@ -25,7 +25,7 @@ then
   echo "$D_Dir does not exist.... please check  "
   exit 1
 fi  
-echo -e "script start executing at:$TIMESTAMP"   
+echo -e "script start executing at:$TIMESTAMP"   &>>Log_files
 files=$(find $S_Dir -name "*.log" -mtime +$Days) 
 
 if [ -n  "$files" ]
@@ -38,7 +38,9 @@ then
       echo -e "Zip file is $Y sucessfully $N created older than $Days..."
      while read -r name
     do
-     echo -e " deleting files:$files" 
+     echo -e " deleting files:$files" &>>Log_files
+     rm -rf $files 
+     echo "deleted file:$files"
 
     done <<< $files
   else
