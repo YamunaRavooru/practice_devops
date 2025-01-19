@@ -2,7 +2,7 @@
 mkdir -p  /var/log/shell_logs
 
 Source_dirc="/home/ec2-user/app-log"
-Dest_dirc="/var/log/Shell_logs"
+Dest_dirc="/var/log/shell_logs"
 File_Name=$(echo  $0 | cut -d '.' -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 Log_files="$Dest_dirc/$File_Name-$TIMESTAMP.log"
