@@ -19,7 +19,7 @@ check_root (){
      exit 1
      fi
 }
-#check_root 
+check_root 
 mkdir -p /var/log/shell_logs
 if [ $# -lt 2 ]
 then
@@ -55,7 +55,7 @@ then
 
     done <<< $files
   else
-    echo -e "$R ERORR: $N Failed to create zip file $N"
+    echo -e "$R ERORR: Failed to create zip file $N"
  fi   
 else 
   echo -e  "$N No files are found to delete older than $Days"
