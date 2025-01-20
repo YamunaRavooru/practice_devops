@@ -11,6 +11,15 @@ Log_files="$Source_dirc/$File_name-$TIMESTAMP.log"
 D_Dir=$2
 S_Dir=$1
 Days=${3:-14}
+userid=$( id -u )
+check_root ()
+{
+    if [ $userid -ne 0 ]
+    then 
+     echo -e "$R Erorr: please take root acess to run this script $N"
+     exit 1
+     fi
+}
 if [ $# -lt 2 ]
 then
   echo -e " $R Usage: $N sh backup <S_Dir> <D_Dir> <days (optional)>" 
