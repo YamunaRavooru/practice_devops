@@ -45,7 +45,7 @@ then
 
     done <<< $files
   else
-    echo -e "$R ERORR: $N Failed to create zip file"
+    echo -e "$R ERORR: $N Failed to create zip file $N"
  fi   
 else 
   echo -e  "$N No files are found to delete older than $Days"
