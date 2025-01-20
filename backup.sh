@@ -32,9 +32,9 @@ files=$(find $S_Dir -name "*.log" -mtime +$Days)
 if [ -n  "$files" ]
 then
      echo "Deleted files :$files"
-     Zip_file="$D_Dir/app-log-$TIMESTAMP.zip"  &>>$Log_files
+     Zip_file="$D_Dir/app_log-$TIMESTAMP.zip"  &>>$Log_files
     find $S_Dir -name  "*.log" -mtime +$Days | zip -@  "$Zip_file" &>>$Log_files
-  if [ -n  "$Zip_file" ]
+  if [ -f  "$Zip_file" ]
   then
       echo -e "Zip file is $Y sucessfully $N created older than $Days..."
      while read -r name
