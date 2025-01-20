@@ -13,7 +13,7 @@ S_Dir=$1
 Days=${3:-14}
 if [ $# -lt 2 ]
 then
-  echo -e " $R Usage: $N sh backup <S_Dir> <D_Dir> <days (optional)>" &>>$Log_files
+  echo -e " $R Usage: $N sh backup <S_Dir> <D_Dir> <days (optional)>" 
   exit 1
 fi  
 if [ ! -d  "$S_Dir" ]
