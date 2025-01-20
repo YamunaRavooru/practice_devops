@@ -3,6 +3,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+mkdir -p /var/log/shell_logs
 Source_dirc="/var/log/shell_logs"
 File_name=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
@@ -47,5 +48,5 @@ then
     echo -e "$R ERORR: $N Failed to create zip file"
  fi   
 else 
-  echo "No files are found to delete older than $Days"
+  echo "$N No files are found to delete older than $Days"
 fi    
