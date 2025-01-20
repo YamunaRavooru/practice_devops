@@ -12,14 +12,14 @@ D_Dir=$2
 S_Dir=$1
 Days=${3:-14}
 userid=$( id -u )
-check_root ()
-{
+check_root (){
     if [ $userid -ne 0 ]
     then 
      echo -e "$R Erorr: please take root acess to run this script $N"
      exit 1
      fi
 }
+check_root 
 mkdir -p /var/log/shell_logs
 if [ $# -lt 2 ]
 then
