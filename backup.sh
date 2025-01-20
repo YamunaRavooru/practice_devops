@@ -19,11 +19,11 @@ check_root (){
      exit 1
      fi
 }
-check_root 
+#check_root 
 mkdir -p /var/log/shell_logs
 if [ $# -lt 2 ]
 then
-  echo -e " $R Usage: $N sh backup <S_Dir> <D_Dir> <days (optional)>" 
+  echo -e " $R Usage:  sh backup <S_Dir> <D_Dir> <days (optional)>$N" 
   exit 1
 fi  
 if [ ! -d  "$S_Dir" ]
