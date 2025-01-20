@@ -3,7 +3,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-mkdir -p /var/log/shell_logs
+
 Source_dirc="/var/log/shell_logs"
 File_name=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
@@ -20,6 +20,7 @@ check_root ()
      exit 1
      fi
 }
+mkdir -p /var/log/shell_logs
 if [ $# -lt 2 ]
 then
   echo -e " $R Usage: $N sh backup <S_Dir> <D_Dir> <days (optional)>" 
