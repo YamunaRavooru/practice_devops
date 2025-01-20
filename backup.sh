@@ -5,7 +5,7 @@ Y="\e[33m"
 N="\e[0m"
 
 Source_dirc="/var/log/shell_logs"
-File_name=$(echo $0 | cut -d "." -f1)
+File_name=$(echo $0 | awk -F "/" '{print $NF}'|cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 Log_files="$Source_dirc/$File_name-$TIMESTAMP.log"
 D_Dir=$2
