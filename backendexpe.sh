@@ -26,13 +26,13 @@ validate () {
     mkdir -p /var/log/expense_shelllog
      echo -e "script start executing at :$TIMESTAMP "  &>>$LOG_FILE_NAME
      check_root
-     dnf moduel disable nodejs -y   &>>$LOG_FILE_NAME
+     dnf module disable nodejs -y   &>>$LOG_FILE_NAME
      validate $? "Disable the nodejs"
      dnf module enable nodejs:20 -y   &>>$LOG_FILE_NAME
      validate $? "Enable the nodejs:20"
      dnf install nodejs -y      &>>$LOG_FILE_NAME
      validate $?  "Install nodejs"
-     id expense
+     id expense  &>>$LOG_FILE_NAME
      if [ $? -ne 0 ]
      then 
        useradd expense
