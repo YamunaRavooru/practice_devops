@@ -13,7 +13,7 @@ validate () {
      then
        echo -e "$2....is $R failure$N"
       else
-        echo -e  "$2......is $G Success"
+        echo -e  "$2......is $G Success$N"
     fi    
      }
      check_root ()  {
@@ -32,3 +32,12 @@ validate () {
      validate $? "enable mysql"
      systemctl start mysqld
      validate $? "start mysql"
+     mysql -h mysql.daws82s.cloud -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
+     if [ $? -ne 0 ]
+     then 
+      mysql_secure_installation --set-root-pass ExpenseApp@1
+      validate $? "setting root password"
+      else 
+        echo -e "mysql root password is already setuped......$Y skipping $N "
+     fi
+
