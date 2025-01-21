@@ -26,11 +26,11 @@ validate () {
     mkdir -p /var/log/expense_shelllog
      echo -e "script start executing at :$TIMESTAMP "  &>>$LOG_FILE_NAME
      check_root
-     dnf moduel disable nodejs -y  &>>$LOG_FILE_NAME
+     dnf moduel disable nodejs -y   &>>$LOG_FILE_NAME
      validate $? "Disable the nodejs"
-     dnf module enable nodejs:20 -y 
+     dnf module enable nodejs:20 -y   &>>$LOG_FILE_NAME
      validate $? "Enable the nodejs:20"
-     dnf install nodejs -y
+     dnf install nodejs -y      &>>$LOG_FILE_NAME
      validate $?  "Install nodejs"
      id expense
      if [ $? -ne 0 ]
@@ -42,23 +42,24 @@ validate () {
      fi  
      mkdir -p /app
      validate $? "App Directory is created"
-     curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+     curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip  &>>$LOG_FILE_NAME
      validate $? "Downloading the backend code"
      cd /app
-     unzip /tmp/backend.zip
+     rm -rf /app/*
+     unzip /tmp/backend.zip   &>>$LOG_FILE_NAME
      validate $? "unzip backend application"
-     npm install
+     npm install  &>>$LOG_FILE_NAME
      validate $? "Installing dependencies "
-     cp /home/ec2-user/practice_devops/backend.service /etc/systemd/system/backend.service
-     systemctl daemon-reload
+     cp /home/ec2-user/practice_devops/backend.service /etc/systemd/system/backend.service &>>$LOG_FILE_NAME
+     systemctl daemon-reload  &>>$LOG_FILE_NAME
      validate $? "Demon-reload"
-     systemctl enable backend
+     systemctl enable backend  &>>$LOG_FILE_NAME
      validate $? "enable backend"
-     systemctl start backend
+     systemctl start backend  &>>$LOG_FILE_NAME
      validate $? "start backend"
-     dnf install mysql -y
+     dnf install mysql -y  &>>$LOG_FILE_NAME
      validate $? "mysql installing"
-     mysql -h mysql.daws82s.cloud -uroot -pExpenseApp@1 < /app/schema/backend.sql
+     mysql -h mysql.daws82s.cloud -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE_NAME
      validate $? "setting up the transaction schema and table"
-      systemctl restart backend
+      systemctl restart backend  &>>$LOG_FILE_NAME
      validate $? "restart backend"
