@@ -28,19 +28,19 @@ validate () {
      check_root
      dnf install nginx -y &>>$LOG_FILE_NAME
      validate $? "Installing nginx"
-     sytemctl start nginx
+     systemctl start nginx &>>$LOG_FILE_NAME
      validate $? "start nginx"
-     systemctl enable nginx
+     systemctl enable nginx &>>$LOG_FILE_NAME
      validate $? "enable nginx"
-     rm -rf /usr/share/nginx/html/*
+     rm -rf /usr/share/nginx/html/*  &>>$LOG_FILE_NAME
      vaidate $? "removing the existing version of the code"
-     curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+     curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip  &>>$LOG_FILE_NAME
      validate $? "Download the new code"
-     cd /usr/share/nginx/html
+     cd /usr/share/nginx/html  &>>$LOG_FILE_NAME
      validate $? "moving to the html directory"
-     unzip /tmp/frontend.zip
+     unzip /tmp/frontend.zip  &>>$LOG_FILE_NAME
      validate $? "unzip the application"
-     cp /home/ec2-user/practice_devops/expense.conf /etc/nginx/default.d/expense.conf
+     cp /home/ec2-user/practice_devops/expense.conf /etc/nginx/default.d/expense.conf &>>$LOG_FILE_NAME
       validate $? "copy the expense.conf"
-    systemctl restart nginx
+    systemctl restart nginx  &>>$LOG_FILE_NAME
     validate $? "restart the nginx"
