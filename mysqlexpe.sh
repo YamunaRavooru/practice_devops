@@ -23,6 +23,7 @@ validate () {
         exit 1
        fi 
     }
+    mkdir -p /var/log/expense_shelllog
      echo -e "script start executing at :$TIMESTAMP "  &>>$LOG_FILE_NAME
      check_root
      dnf install mysql-server -y  &>>$LOG_FILE_NAME
