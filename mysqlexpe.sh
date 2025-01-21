@@ -16,12 +16,12 @@ validate () {
         echo -e  "$2......is $G Success"
     fi    
      }
-     check_root() {
+     check_root ()  {
         if [ $userid -ne 0 ]
         then 
         echo -e "$R Erorr: Please take root acess to execute this script$N"
         exit 1
-     }
+            }
      echo -e "script start executing at :$TIMESTAMP "  &>>$LOG_FILE_NAME
      check_root
      dnf install mysql-server -y  &>>$LOG_FILE_NAME
