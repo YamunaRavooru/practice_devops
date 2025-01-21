@@ -21,7 +21,8 @@ validate () {
         then 
         echo -e "$R Erorr: Please take root acess to execute this script$N"
         exit 1
-            }
+       fi 
+    }
      echo -e "script start executing at :$TIMESTAMP "  &>>$LOG_FILE_NAME
      check_root
      dnf install mysql-server -y  &>>$LOG_FILE_NAME
