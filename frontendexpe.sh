@@ -33,7 +33,7 @@ validate () {
      systemctl enable nginx &>>$LOG_FILE_NAME
      validate $? "enable nginx"
      rm -rf /usr/share/nginx/html/*  &>>$LOG_FILE_NAME
-     vaidate $? "removing the existing version of the code"
+     validate $? "removing the existing version of the code"
      curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip  &>>$LOG_FILE_NAME
      validate $? "Download the new code"
      cd /usr/share/nginx/html  &>>$LOG_FILE_NAME
