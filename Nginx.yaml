@@ -1,0 +1,10 @@
+- name: Install nginx
+  hosts: local
+  connection: local
+  become: yes
+  tasks:
+  - name: Install nignx
+    ansible.builtin.dnf:
+      name: nginx
+      state: installed
+      
