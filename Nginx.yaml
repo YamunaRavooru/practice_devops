@@ -4,7 +4,8 @@
   become: yes
   vars_prompt:
   - name: number
-    prompt: please enter the number   
+    prompt: please enter the number 
+    private: false  
   tasks:
   - name: Install nignx
     ansible.builtin.dnf:
