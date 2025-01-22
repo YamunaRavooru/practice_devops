@@ -2,8 +2,19 @@
   hosts: local
   connection: local
   become: yes
+  vars_prompt:
+  - name: number
+    prompt: please enter the number   
   tasks:
   - name: Install nignx
     ansible.builtin.dnf:
       name: nginx
       state: installed
+  - name:  the number is grater than 
+    ansible.builtin.debug:
+      msg: "the given number{{ number }} is grather than 20"
+    when: "{{ number }} > 20 " 
+  - name:  the number is grater than 
+    ansible.builtin.debug:
+      msg: "the given number{{ number }} is grather than 20"
+    when: "{{ number }} < 20"  
