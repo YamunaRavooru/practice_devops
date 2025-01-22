@@ -7,7 +7,7 @@
     prompt: please enter the number 
     private: false  
   tasks:
-  - name: Install nignx
+  - name: Install nginx
     ansible.builtin.dnf:
       name: nginx
       state: installed
@@ -15,7 +15,7 @@
     ansible.builtin.debug:
       msg: "the given number{{ number }} is grather than 20"
     when: "{{ number }} > 20 " 
-  - name:  the number is grater than 
+  - name:  the number  is less than 
     ansible.builtin.debug:
-      msg: "the given number{{ number }} is grather than 20"
+      msg: "the given number{{ number }} is less than 20"
     when: "{{ number }} < 20"  
